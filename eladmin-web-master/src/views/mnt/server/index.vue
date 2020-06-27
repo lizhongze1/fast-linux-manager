@@ -38,7 +38,7 @@
     <!--表格渲染-->
     <el-table ref="table" v-loading="crud.loading" :data="crud.data" style="width: 100%" @selection-change="crud.selectionChangeHandler">
       <el-table-column type="selection" width="55" />
-      <el-table-column prop="name" label="名称" />
+      <el-table-column prop="name" label="名称1" />
       <el-table-column prop="ip" label="IP" />
       <el-table-column prop="port" label="端口" />
       <el-table-column prop="account" label="账号" />
@@ -53,6 +53,7 @@
             :data="scope.row"
             :permission="permission"
           />
+          <el-button :loading="loading" type="success" style="align: right;" @click="handleXshell(scope.row)">xshell</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -128,7 +129,12 @@ export default {
           })
         }
       })
+    },
+    // 新页面
+    handleXshell(row) {
+      this.$router.push('/mnt/mnt/xshell?id='+row.id)
     }
+
   }
 }
 </script>
