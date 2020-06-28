@@ -42,7 +42,7 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @EnableTransactionManagement
 @EnableJpaAuditing(auditorAwareRef = "auditorAware")
-//@ComponentScan("com.lzz")
+@ComponentScan({"com.lzz","me.zhengjie"})
 public class AppRun {
 
     public static void main(String[] args) {

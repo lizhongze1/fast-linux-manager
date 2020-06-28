@@ -6,18 +6,21 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="eladmin-common" />
-        <module name="eladmin-system" />
-        <module name="eladmin-tools" />
         <module name="eladmin-generator" />
+        <module name="eladmin-system" />
+        <module name="eladmin-manager" />
         <module name="eladmin-logging" />
+        <module name="eladmin-tools" />
+        <module name="eladmin-common" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="eladmin" target="1.8" />
       <module name="eladmin-common" target="1.8" />
       <module name="eladmin-generator" target="1.8" />
+      <module name="eladmin-generator (1)" target="1.8" />
       <module name="eladmin-logging" target="1.8" />
+      <module name="eladmin-manager" target="1.8" />
       <module name="eladmin-system" target="1.8" />
       <module name="eladmin-tools" target="1.8" />
     </bytecodeTargetLevel>
@@ -26,7 +29,9 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="eladmin-common" options="-parameters" />
       <module name="eladmin-generator" options="-parameters" />
+      <module name="eladmin-generator (1)" options="-parameters" />
       <module name="eladmin-logging" options="-parameters" />
+      <module name="eladmin-manager" options="-parameters" />
       <module name="eladmin-system" options="-parameters" />
       <module name="eladmin-tools" options="-parameters" />
     </option>

@@ -22,15 +22,13 @@ export default {
     // ondta方法是terminal获取输入数据的方法，因此要在这里给后台发送数据
     term.onData(function(data) {
       // 键盘输入时的回调函数
+      term.write(data);
       console.log(data)
     })
   },
   methods: {
     fetchData() {
-        console.log(this.$route.query.id);
-/*      nodeServerLog(this.$route.query.id).then(res => {
-        this.form.desc = res.data
-      })*/
+      console.log(this.$route.query.id)
     },
     onRefresh() {
       this.fetchData()
@@ -39,5 +37,39 @@ export default {
       history.go(-1)
     }
   }
+}
+
+
+
+function (ip) {
+    if (window.WebSocket) {
+        //如果支持websocket
+        this._connection = new WebSocket(ip);
+    }else {
+        //否则报错
+        console.log('WebSocket Not Supported');
+        return;
+    }
+    //onpen、onmessage等都是WebSocket类自带的监听方法
+    this._connection.onopen = function () {
+        console.log('WebSocket estblished');
+    };
+
+    this._connection.onmessage = function (evt) {
+        var data = evt.data.toString();
+        //	接收到客户端返回的信息
+        console.log('WebSocket data',data);
+    };
+    //send方法往后台发送数据
+    this._connection.send(JSON.stringify(data));
+
+    this._connection.onerror = function (evt) {
+        var url= evt.currentTarget.url.toString();
+        console.log(url,' is Rejected Acessed');
+    };
+
+    this._connection.onclose = function (evt) {
+        console.log('WebSocket Closed');
+    };
 }
 </script>
